@@ -4,6 +4,7 @@ import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"log"
 	"time"
 
 	"../../database"
@@ -46,6 +47,23 @@ func Read() (m.Users, error) {
 	}
 
 	return users, nil
+}
+
+
+func ReadOne(userId string) (m.User, error) {
+	var user m.User
+	var err error
+	var oid primitive.ObjectID
+	oid, err = primitive.ObjectIDFromHex(userId)
+
+	filter := bson.M{"_id": oid}
+	err = collection.FindOne(ctx, filter).Decode(&user)
+
+	if err != nil{
+		log.Fatal(err)
+	}
+
+	return user, nil
 }
 
 func Update(user m.User, userId string) error {

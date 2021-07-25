@@ -36,10 +36,22 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
+func GetUser(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	vars := mux.Vars(r)
+	userID := vars["id"]
+	users, err := userService.ReadOne(userID)
+
+	if err != nil{
+		fmt.Fprintf(w, "Error al obtener usuario")
+	}
+
+	json.NewEncoder(w).Encode(users)
+}
+
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	var updateUser m.User
 	vars := mux.Vars(r)
-	//userID, err := strconv.Atoi(vars["id"])
 	userID := vars["id"]
 	if userID == ""  {
 		fmt.Fprintf(w, "Id vacio")

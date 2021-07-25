@@ -3,6 +3,7 @@ package user_service
 import (
 	m "../../models"
 	userRepository "../../repositories/user.repository"
+	"log"
 )
 
 func Create(user m.User) error {
@@ -18,6 +19,15 @@ func Read() (m.Users, error) {
 
 	if err != nil {
 		return nil, err
+	}
+	return users, nil
+}
+
+func ReadOne(userId string) (m.User, error) {
+	users, err := userRepository.ReadOne(userId)
+
+	if err != nil {
+		log.Fatal(err)
 	}
 	return users, nil
 }
