@@ -9,7 +9,7 @@ import (
 )
 
 func indexRoute(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Bienvenido a mi API de Jhon Oquendo")
+	fmt.Fprintf(w, "Bienvenido a mi API de Jhon Oquendo Vizcarra")
 }
 
 func main() {

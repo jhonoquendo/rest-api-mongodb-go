@@ -1,4 +1,4 @@
-package user_repository
+package repositories
 
 import (
 	"context"
@@ -7,8 +7,8 @@ import (
 	"log"
 	"time"
 
-	"../../database"
-	m "../../models"
+	"../database"
+	m "../models"
 )
 
 var collection = database.GetCollection("users")

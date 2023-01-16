@@ -2,7 +2,7 @@ package user_service
 
 import (
 	m "../../models"
-	userRepository "../../repositories/user.repository"
+	userRepository "../../repositories"
 	"log"
 )
 

@@ -1,7 +1,7 @@
 package user_route
 
 import (
-	userController "../../controllers/user.controller"
+	userController "../../controllers"
 	"github.com/gorilla/mux"
 )
 

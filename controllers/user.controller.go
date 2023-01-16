@@ -1,8 +1,8 @@
-package user_controller
+package controllers
 
 import (
-	m "../../models"
-	userService "../../services/user.service"
+	m "../models"
+	userService "../services/user.service"
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
